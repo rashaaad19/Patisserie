@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+    background: var(--color-orange-50);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --color-gray-50: #ffffff;
+  --color-gray-100: #f2f2f2;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #cccccc;
+  --color-gray-400: #b3b3b3;
+  --color-gray-500: #999999;
+  --color-gray-600: #808080;
+  --color-gray-700: #666666;
+  --color-gray-800: #4d4d4d;
+  --color-gray-900: #333333;
+  
+  --color-blue-50: #f2f7fd;
+  --color-blue-200: #d3e3f5;
+  --color-blue-300: #b8d3f1;
+  --color-blue-400: #9ec2ec;
+  --color-blue-500: #83b2e8;
+  --color-blue-600: #699fd1;
+  --color-blue-700: #5481a7;
+  --color-blue-800: #3e637d;
+  --color-blue-900: #293553;
+  
+  --color-orange-50: #fff8e1;
+  --color-orange-100: #fff3e0;
+  --color-orange-200: #ffe0b2;
+  --color-orange-300: #ffcc80;
+  --color-orange-400: #ffb74d;
+  --color-orange-500: #ffa726;
+  --color-orange-600: #fb8c00;
+  --color-orange-700: #f57c00;
+  --color-orange-800: #ef6c00;
+  --color-orange-900: #e65100;
+  
+  }
+
+
+  main{
+    max-width: 80rem;
+    margin: 0 auto;
+  }
