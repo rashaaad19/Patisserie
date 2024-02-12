@@ -4,7 +4,7 @@ import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
 import RecipesPage,{loader as recipesLoader} from "./pages/RecipesPage";
 import AddRecipePage from "./pages/AddRecipePage";
-import RecipeDetailsPage from "./pages/RecipeDetailsPage";
+import RecipeDetailsPage,{loader as itemLoader} from "./pages/RecipeDetailsPage";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
@@ -24,11 +24,13 @@ function App() {
             {
               index: true,
               element: <RecipesPage />,
+              id:'recipes-data',
               loader:recipesLoader
             },
             {
-              path: "recipeDetails/:recipeId",
+              path: ":recipeId",
               element: <RecipeDetailsPage />,
+              loader:itemLoader,
             },
           ],
         },
