@@ -1,6 +1,8 @@
 import Input from "../ui/Input";
 import Textarea from "../ui/Textarea";
 const RecipeForm = () => {
+
+
   const handleOnSubmit = (event) => {
     let added_recipe = {};
     event.preventDefault();
@@ -12,8 +14,13 @@ const RecipeForm = () => {
       ingredients: form_data.get("ingredients"),
       summary: form_data.get("summary"),
     };
-    console.log(added_recipe)
+    console.log(added_recipe);
+    event.target.reset();
   };
+
+
+
+  
   return (
     <form onSubmit={handleOnSubmit}>
       <Input id="name" name="name" type="text" label="Recipe name" required />
