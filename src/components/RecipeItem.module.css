@@ -5,19 +5,33 @@
     transition: box-shadow 0.3s ease; 
     max-width: 23rem;
     padding: 10px;
+    height: 100%;
   }
   
   .itemContainer:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    opacity: 70%;
   }
   
   .itemContainer img {
     width: 100%; 
     display: block; 
   }
-  
+ 
   .itemContainer .content {
-    background-color: inherit; /* Add a background color */
-    color: var(--color-gray-900); /* Set text color */
+    background-color: inherit; 
+    color: var(--color-gray-600); 
   }
   
+  .icon{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .itemContainer h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    margin-block: 15px;
+    line-height: 35px;
+    height: 70px;
+    color: var(--color-gray-900);
+  }

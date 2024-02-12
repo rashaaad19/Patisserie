@@ -1,17 +1,22 @@
 import classes from "./RecipeItem.module.css";
-const RecipeItem = () => {
+import { PiCookingPot } from "react-icons/pi";
+import { IoRestaurantOutline } from "react-icons/io5";
+
+const RecipeItem = ({ title, servings, duration, image, score }) => {
   return (
     <>
       <div className={classes.itemContainer}>
-        <img
-          src="https://casuallypeckish.com/wp-content/uploads/2022/01/Soy-sauce-noodles-8.jpg"
-          alt="recipe"
-        />
+        <img src={image} alt="recipe" />
+        <h3>{title}</h3>
+
         <div className={classes.content}>
-          <h3>Name</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <p className={classes.icon}>
+            <PiCookingPot />
+            {duration + " Minutes"}
+          </p>
+          <p className={classes.icon}>
+            <IoRestaurantOutline />
+            {servings + " Person"}
           </p>
         </div>
       </div>
