@@ -1,7 +1,12 @@
+import RecipeForm from "../components/RecipeForm"
 
 const AddRecipePage = () => {
   return (
-    <h1>AddRecipe</h1>
+    
+    <>
+    <h1>Recipee page</h1>
+    <RecipeForm/>
+    </>
   )
 }
 
