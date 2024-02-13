@@ -12,18 +12,45 @@ const RecipeDetailsPage = () => {
   }
   const plainTexInstructions = htmlToPlainText(data.instructions);
   const plainTextSummary = htmlToPlainText(data.summary);
+  console.log(plainTexInstructions);
+  const ingredientNames = data.extendedIngredients.map((item) => item.original);
+  console.log(ingredientNames);
 
   return (
     <>
       <div className={classes.container}>
         <h1>{data.title}</h1>
-        <p>{data.readyInMinutes}</p>
-        <p>{data.servings}</p>
-        <p>{(data.spoonacularScore*100).toFixed(1)}</p>
-        <img src={data.image} />
+        <div className={classes.headerContainer}>
+          <p className={classes.control}>
+            <span>{`${data.readyInMinutes}m `}</span>
+            <span>cook</span>
+          </p>
+          <p className={classes.control}>
+            <span>{`${data.servings} `}</span>
+            <span>servings</span>
+          </p>
+          <p className={classes.control}>
+            <span>{(data.spoonacularScore * 100).toFixed(1)}%</span>
+            <span> score</span>
+          </p>
+        </div>
+        <div>
+          <img src={data.image} />
+          <p>{plainTextSummary}</p>
+        </div>
 
-        <p>{plainTexInstructions}</p>
-        <p>{plainTextSummary}</p>
+        <div className={classes.ingredientsContainer}>
+          <h2>Ingredients</h2>
+          <ul>
+            {ingredientNames.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={classes.instructionsContainer}>
+          <h3>Instructions</h3>
+          <p>{plainTexInstructions}</p>
+        </div>
       </div>
     </>
   );
@@ -34,7 +61,7 @@ export default RecipeDetailsPage;
 export const loader = async ({ params }) => {
   const id = params.recipeId;
   const response = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/information?apiKey=e9ea301602fd4a2490254abb5a13e2ab`
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=fcdf38efec8043e7a78b498d7e553df9`
   );
   if (!response.ok) {
     throw json({ message: "Error fetching recipe" }, { status: 500 });
