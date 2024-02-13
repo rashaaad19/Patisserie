@@ -5,4 +5,58 @@
 }
 .container input, .container textarea{
   outline: none;
+  padding: 10px;
+  border-color: transparent;
+  /* border-radius: 10px; */
+  background-color: var(--color-gray-50);
+  font-size: 18px;
+  /* border-bottom: 1px solid var(--color-gray-600); */
+  box-shadow: 0px 0px 2px 0px black;
+}
+.container label{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.button{
+  padding: 20px;
+  background-color: var(--color-gray-200);
+  border: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+  cursor: pointer;
+  color: var(--color-orange-900);
+  border: 2px solid var(--color-orange-900);
+  background: none;
+  font-weight: bold;
+}
+.button:hover{
+  background: var(--color-orange-900);
+  color: white;
+}
+.ingredients{
+  display: flex;
+  flex-direction: column;
+}
+.ingredientsLabel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ingredientsLabel button{
+  padding: 10px;
+  background: var(--color-orange-600);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: var(--color-orange-50);
+}
+.ingredientsLabel button:hover{
+  opacity: 80%;
+}
+.ingredientsLabel ul{
+  display: flex;
+  padding: 0;
+  gap: 10px;
+  list-style: none;
 }

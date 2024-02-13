@@ -30,7 +30,7 @@ const RecipeDetailsPage = () => {
             <span>servings</span>
           </p>
           <p className={classes.control}>
-            <span>{(data.spoonacularScore * 100).toFixed(1)}%</span>
+            <span>{(data.spoonacularScore).toFixed(1)}%</span>
             <span> score</span>
           </p>
         </div>
