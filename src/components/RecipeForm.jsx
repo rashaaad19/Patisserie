@@ -54,6 +54,7 @@ const RecipeForm = () => {
   const handleAddIngredient = () => {
     const addedIngredient = ref.current.ingredients.value;
     setIngredients([...ingredients, addedIngredient]);
+    ref.current.ingredients.value="";
   };
   console.log(ingredients);
 
@@ -97,8 +98,8 @@ const RecipeForm = () => {
           id="ingredients"
           name="ingredients"
           label="Ingredients"
-          required
-        />
+          required={!ingredients.length > 0}
+          />
         <div className={classes.ingredientsLabel}>
           <div>
             {ingredients.length > 0 && (
