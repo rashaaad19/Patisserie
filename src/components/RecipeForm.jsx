@@ -6,7 +6,14 @@ const RecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const ref = useRef();
 
-  const handleOnSubmit = (event) => {
+
+  function generateUniqueID(name) {
+    const firstWord = name.toLowerCase().split(' ')[0];
+    const randomNumber = Math.floor(Math.random() * 10000);
+    return `${firstWord}-${randomNumber}`;
+  }
+  
+  const handleOnSubmit = async (event) => {
     let added_recipe = {};
     event.preventDefault();
     const form_data = new FormData(event.target);
@@ -16,10 +23,32 @@ const RecipeForm = () => {
       time: form_data.get("time"),
       ingredients: [...ingredients],
       summary: form_data.get("summary"),
-      image: form_data.get,
+      image: form_data.get("image"),
+      id:generateUniqueID(form_data.get("name"))
+
     };
     console.log(added_recipe);
+
+    try {
+      const response = await fetch(
+        "https://foodie-92e3e-default-rtdb.firebaseio.com/recipes.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json", 
+          },
+
+          body: JSON.stringify(added_recipe),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to add recipe");
+      }
+    } catch (error) {
+      console.log(error);
+    }
     event.target.reset();
+    setIngredients([])
   };
 
   const handleAddIngredient = () => {
@@ -68,11 +97,10 @@ const RecipeForm = () => {
           id="ingredients"
           name="ingredients"
           label="Ingredients"
-          // onChange={handleOnChange}
           required
         />
         <div className={classes.ingredientsLabel}>
-          <p>
+          <div>
             {ingredients.length > 0 && (
               <ul>
                 {ingredients.map((item) => (
@@ -80,7 +108,7 @@ const RecipeForm = () => {
                 ))}
               </ul>
             )}
-          </p>
+          </div>
           <button type="button" onClick={handleAddIngredient}>
             Add Ingredient
           </button>
