@@ -7,21 +7,35 @@ const MainNav = () => {
         <ul>
           <NavLink
             to={""}
-            className={({ isActive }) => isActive ? `${classes.active}`:undefined}
+            className={({ isActive }) =>
+              isActive ? `${classes.active}` : undefined
+            }
           >
             <li>Home</li>
           </NavLink>
           <NavLink
             to={"/recipes"}
-            className={({ isActive }) => isActive ? `${classes.active}`:undefined}
+            className={({ isActive }) =>
+              isActive ? `${classes.active}` : undefined
+            }
           >
             <li>Recipes</li>
           </NavLink>
           <NavLink
             to={"/addRecipe"}
-            className={({ isActive }) => isActive ? `${classes.active}`:undefined}
+            className={({ isActive }) =>
+              isActive ? `${classes.active}` : undefined
+            }
           >
             <li>Add recipe</li>
+          </NavLink>
+          <NavLink
+            to={"/myRecipes"}
+            className={({ isActive }) =>
+              isActive ? `${classes.active}` : undefined
+            }
+          >
+            <li>My recipes</li>
           </NavLink>
         </ul>
       </nav>

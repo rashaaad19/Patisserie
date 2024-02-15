@@ -3,55 +3,65 @@ import Textarea from "../ui/Textarea";
 import classes from "../ui/Input.module.css";
 import { generateUniqueID } from "../utilties/functions";
 import { useRef, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const RecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [formValid, setFormValid] = useState("wait");
   const ref = useRef();
+  const navigate = useNavigate();
 
   const handleOnSubmit = async (event) => {
     let added_recipe = {};
     event.preventDefault();
-    const form_data = new FormData(event.target);
-    added_recipe = {
-      name: form_data.get("name"),
-      serving: form_data.get("serving"),
-      time: form_data.get("time"),
-      ingredients: [...ingredients],
-      summary: form_data.get("summary"),
-      image: form_data.get("image"),
-      id: generateUniqueID(form_data.get("name")),
-    };
-    console.log(added_recipe);
 
-    try {
-      const response = await fetch(
-        "https://foodie-92e3e-default-rtdb.firebaseio.com/recipes.json",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+    if (formValid === "true") {
+      const form_data = new FormData(event.target);
+      added_recipe = {
+        title: form_data.get("name"),
+        servings: form_data.get("serving"),
+        readyInMinutes: form_data.get("time"),
+        extendedIngredients: [...ingredients],
+        summary: form_data.get("summary"),
+        image: form_data.get("image"),
+        id: generateUniqueID(form_data.get("name")),
+      };
+      console.log(added_recipe);
 
-          body: JSON.stringify(added_recipe),
+      try {
+        const response = await fetch(
+          "https://foodie-92e3e-default-rtdb.firebaseio.com/recipes.json",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(added_recipe),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to add recipe");
         }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to add recipe");
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+      event.target.reset();
+      setIngredients([]);
+      navigate("/myRecipes");
     }
-    event.target.reset();
-    setIngredients([]);
   };
 
   const handleAddIngredient = () => {
     const addedIngredient = ref.current.ingredients.value;
-    setIngredients([...ingredients, addedIngredient]);
-    ref.current.ingredients.value = "";
+    if (addedIngredient.length != 0) {
+      setIngredients([...ingredients, addedIngredient]);
+      ref.current.ingredients.value = "";
+      setFormValid("true");
+    } else {
+      setFormValid("empty-input");
+    }
   };
-  console.log(ingredients);
 
   return (
     <form onSubmit={handleOnSubmit} ref={ref}>
@@ -89,14 +99,14 @@ const RecipeForm = () => {
         className={classes.number}
       />
       <div className={classes.ingredients}>
-        <Input
-          id="ingredients"
-          name="ingredients"
-          label="Ingredients"
-          required={!ingredients.length > 0}
-        />
+        <Input id="ingredients" name="ingredients" label="Ingredients" />
         <div className={classes.ingredientsLabel}>
           <div>
+
+            {formValid === "empty-input" && (
+              <p>Enter at least one ingredient</p>
+            )}
+
             {ingredients.length > 0 && (
               <ul>
                 {ingredients.map((item) => (

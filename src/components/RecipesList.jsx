@@ -12,7 +12,7 @@ const RecipesList = ({ recipes }) => {
               servings={recipe.servings}
               duration={recipe.readyInMinutes}
               image={recipe.image}
-              score={recipe.spoonacularScore}
+              score={recipe.spoonacularScore || null}
             />
           </Link>
         ))}

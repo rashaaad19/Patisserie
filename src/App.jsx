@@ -2,17 +2,20 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
-import RecipesPage,{loader as recipesLoader} from "./pages/RecipesPage";
+import RecipesPage, { loader as recipesLoader } from "./pages/RecipesPage";
 import AddRecipePage from "./pages/AddRecipePage";
-import RecipeDetailsPage,{loader as itemLoader} from "./pages/RecipeDetailsPage";
+import RecipeDetailsPage, {
+  loader as itemLoader,
+} from "./pages/RecipeDetailsPage";
 import ErrorPage from "./pages/ErrorPage";
+import MyRecipes,{loader as myRecipesLoader} from "./pages/MyRecipes";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
-      errorElement:<ErrorPage/>,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
@@ -24,13 +27,13 @@ function App() {
             {
               index: true,
               element: <RecipesPage />,
-              id:'recipes-data',
-              loader:recipesLoader
+              id: "recipes-data",
+              loader: recipesLoader,
             },
             {
               path: ":recipeId",
               element: <RecipeDetailsPage />,
-              loader:itemLoader,
+              loader: itemLoader,
             },
           ],
         },
@@ -38,7 +41,22 @@ function App() {
           path: "addRecipe",
           element: <AddRecipePage />,
         },
-
+        {
+          path: "myRecipes",
+          children: [
+            {
+              index: true,
+              element: <MyRecipes />,
+              loader: myRecipesLoader
+            },
+            {
+              path: ":recipeId",
+              element: <RecipeDetailsPage />,
+              loader:itemLoader
+              
+            },
+          ],
+        },
       ],
     },
   ]);
