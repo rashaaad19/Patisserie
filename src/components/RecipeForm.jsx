@@ -1,18 +1,14 @@
 import Input from "../ui/Input";
 import Textarea from "../ui/Textarea";
 import classes from "../ui/Input.module.css";
+import { generateUniqueID } from "../utilties/functions";
 import { useRef, useState } from "react";
+
+
 const RecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const ref = useRef();
 
-
-  function generateUniqueID(name) {
-    const firstWord = name.toLowerCase().split(' ')[0];
-    const randomNumber = Math.floor(Math.random() * 10000);
-    return `${firstWord}-${randomNumber}`;
-  }
-  
   const handleOnSubmit = async (event) => {
     let added_recipe = {};
     event.preventDefault();
@@ -24,8 +20,7 @@ const RecipeForm = () => {
       ingredients: [...ingredients],
       summary: form_data.get("summary"),
       image: form_data.get("image"),
-      id:generateUniqueID(form_data.get("name"))
-
+      id: generateUniqueID(form_data.get("name")),
     };
     console.log(added_recipe);
 
@@ -35,7 +30,7 @@ const RecipeForm = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json", 
+            "Content-Type": "application/json",
           },
 
           body: JSON.stringify(added_recipe),
@@ -48,13 +43,13 @@ const RecipeForm = () => {
       console.log(error);
     }
     event.target.reset();
-    setIngredients([])
+    setIngredients([]);
   };
 
   const handleAddIngredient = () => {
     const addedIngredient = ref.current.ingredients.value;
     setIngredients([...ingredients, addedIngredient]);
-    ref.current.ingredients.value="";
+    ref.current.ingredients.value = "";
   };
   console.log(ingredients);
 
@@ -99,7 +94,7 @@ const RecipeForm = () => {
           name="ingredients"
           label="Ingredients"
           required={!ingredients.length > 0}
-          />
+        />
         <div className={classes.ingredientsLabel}>
           <div>
             {ingredients.length > 0 && (
