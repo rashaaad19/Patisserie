@@ -1,5 +1,6 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 import PageContent from "../components/PageContent";
+import classes from "./ErrorPage.module.css"
 const ErrorPage = () => {
   let title = "An error occured :(";
   let message = "Something went wrong !";
@@ -15,9 +16,12 @@ const ErrorPage = () => {
   }
   return (
     <>
+    <div className={classes.container}>
       <PageContent title={title}>
         <h3>{message}</h3>
+        <Link to={"/"}>Go to home page</Link>
       </PageContent>
+      </div>
     </>
   );
 };
