@@ -50,9 +50,13 @@ const RecipeForm = () => {
       setIngredients([]);
       navigate("/myRecipes");
     }
+    if(formValid==='wait'){
+      setFormValid('empty-input')
+    }
   };
 
   const handleAddIngredient = () => {
+    
     const addedIngredient = ref.current.ingredients.value;
     if (addedIngredient.length != 0) {
       setIngredients([...ingredients, addedIngredient]);

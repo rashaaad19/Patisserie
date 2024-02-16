@@ -54,9 +54,19 @@
 .ingredientsLabel button:hover{
   opacity: 80%;
 }
+.ingredientsLabel p {
+  color: red;
+}
 .ingredientsLabel ul{
   display: flex;
   padding: 0;
   gap: 10px;
   list-style: none;
+}
+.ingredientsLabel li{
+  background: white;
+  padding: 5px;
+  border:1px solid gainsboro;
+  border-radius: 8px;
+  color: var(--color-orange-800);
 }

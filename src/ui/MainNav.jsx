@@ -22,20 +22,20 @@ const MainNav = () => {
             <li>Recipes</li>
           </NavLink>
           <NavLink
-            to={"/addRecipe"}
-            className={({ isActive }) =>
-              isActive ? `${classes.active}` : undefined
-            }
-          >
-            <li>Add recipe</li>
-          </NavLink>
-          <NavLink
             to={"/myRecipes"}
             className={({ isActive }) =>
               isActive ? `${classes.active}` : undefined
             }
           >
             <li>My recipes</li>
+          </NavLink>
+          <NavLink
+            to={"/addRecipe"}
+            className={({ isActive }) =>
+              isActive ? `${classes.active}` : undefined
+            }
+          >
+            <li>Add recipe</li>
           </NavLink>
         </ul>
       </nav>

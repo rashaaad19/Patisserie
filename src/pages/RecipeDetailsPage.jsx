@@ -1,11 +1,13 @@
 import { json, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import classes from "./RecipeDetailsPage.module.css";
 import { htmlToPlainText } from "../utilties/functions";
+import { useState } from "react";
 const RecipeDetailsPage = () => {
   const data = useLoaderData();
   const params = useParams();
   const navigate = useNavigate();
-
+  const [addedRecipe, setAddedRecipe] = useState(false);
+  console.log(data);
   let plainTexInstructions = undefined;
   console.log(params.recipeId);
   if (data.instructions) {
@@ -38,6 +40,23 @@ const RecipeDetailsPage = () => {
       navigate("/myRecipes");
     }
   };
+
+  const handleOnAdd = async () => {
+    const response = await fetch(
+      "https://foodie-92e3e-default-rtdb.firebaseio.com/recipes.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    if (!response.ok) {
+      throw json({ message: "Could not add your recipe" }, { status: 500 });
+    }
+    setAddedRecipe(true);
+  };
   return (
     <>
       <div className={classes.container}>
@@ -60,6 +79,17 @@ const RecipeDetailsPage = () => {
           {params.recipeId.includes("-") && (
             <p className={`${classes.control} ${classes.controlBtn}`}>
               <button onClick={handleOnDelete}>Delete</button>
+            </p>
+          )}
+          {!params.recipeId.includes("-") && (
+            <p className={`${classes.control} ${classes.controlBtn}`}>
+              <button
+                onClick={handleOnAdd}
+                disabled={addedRecipe}
+                style={addedRecipe ? { opacity: "50%", cursor: "default" } : {}}
+              >
+                {addedRecipe ? "Recipe Added" : "Add Recipe"}
+              </button>
             </p>
           )}
         </div>
