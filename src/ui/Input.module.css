@@ -10,7 +10,6 @@
   /* border-radius: 10px; */
   background-color: var(--color-gray-50);
   font-size: 18px;
-  /* border-bottom: 1px solid var(--color-gray-600); */
   box-shadow: 0px 0px 2px 0px black;
 }
 .container label{
@@ -25,13 +24,13 @@
   border-radius: 5px;
   margin-top: 2rem;
   cursor: pointer;
-  color: var(--color-orange-900);
-  border: 2px solid var(--color-orange-900);
+  color: var(--color-pink-700);
+  border: 2px solid var(--color-pink-700);
   background: none;
   font-weight: bold;
 }
 .button:hover{
-  background: var(--color-orange-900);
+  background: var(--color-pink-700);
   color: white;
 }
 .ingredients{
@@ -45,11 +44,11 @@
 }
 .ingredientsLabel button{
   padding: 10px;
-  background: var(--color-orange-600);
+  background: var(--color-pink-500);
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  color: var(--color-orange-50);
+  color: var(--color-pink-50);
 }
 .ingredientsLabel button:hover{
   opacity: 80%;
@@ -62,11 +61,12 @@
   padding: 0;
   gap: 10px;
   list-style: none;
+  flex-wrap: wrap;
 }
 .ingredientsLabel li{
   background: white;
   padding: 5px;
   border:1px solid gainsboro;
   border-radius: 8px;
-  color: var(--color-orange-800);
+  color: var(--color-pink-700);
 }

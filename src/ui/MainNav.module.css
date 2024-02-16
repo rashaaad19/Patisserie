@@ -7,7 +7,7 @@
     list-style: none;
 }
 .mainNav li{
-color: var(--color-orange-400);
+color: var(--color-pink-400);
 font-weight: bold;
 font-size: large;
 text-decoration: none;
@@ -16,6 +16,6 @@ text-decoration: none;
     text-decoration: none;
 }
 .mainNav a.active,.mainNav a:hover{
-color: var(--color-orange-700);
+color: var(--color-pink-700);
 text-decoration: underline;
 }

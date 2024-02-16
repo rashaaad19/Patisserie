@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Freehand&display=swap');
 * {
   box-sizing: border-box;
 }
-
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -12,7 +10,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-    background: var(--color-orange-50);
+  background: #f3f3fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,7 +27,7 @@
   --color-gray-700: #666666;
   --color-gray-800: #4d4d4d;
   --color-gray-900: #333333;
-  
+
   --color-blue-50: #f2f7fd;
   --color-blue-200: #d3e3f5;
   --color-blue-300: #b8d3f1;
@@ -39,7 +37,7 @@
   --color-blue-700: #5481a7;
   --color-blue-800: #3e637d;
   --color-blue-900: #293553;
-  
+
   --color-orange-50: #fff8e1;
   --color-orange-100: #fff3e0;
   --color-orange-200: #ffe0b2;
@@ -50,11 +48,44 @@
   --color-orange-700: #f57c00;
   --color-orange-800: #ef6c00;
   --color-orange-900: #e65100;
-  
-  }
+  /* Shades of Green */
+  --color-green-50: #e8f5e9;
+  --color-green-100: #c8e6c9;
+  --color-green-200: #a5d6a7;
+  --color-green-300: #81c784;
+  --color-green-400: #66bb6a;
+  --color-green-500: #4caf50;
+  --color-green-600: #43a047;
+  --color-green-700: #388e3c;
+  --color-green-800: #2e7d32;
+  --color-green-900: #1b5e20;
 
+  /* Shades of Pink */
+  --color-pink-50: #fce4ec;
+  --color-pink-100: #f8bbd0;
+  --color-pink-200: #f48fb1;
+  --color-pink-300: #f06292;
+  --color-pink-400: #ec407a;
+  --color-pink-500: #e91e63;
+  --color-pink-600: #d81b60;
+  --color-pink-700: #c2185b;
+  --color-pink-800: #ad1457;
+  --color-pink-900: #880e4f;
+  /* Shades of Yellow*/
 
-  main{
-    max-width: 80rem;
-    margin: 0 auto;
-  }
+  --color-yellow-50: #fffde7;
+  --color-yellow-100: #fff9c4;
+  --color-yellow-200: #fff59d;
+  --color-yellow-300: #fff176;
+  --color-yellow-400: #ffee58;
+  --color-yellow-500: #ffeb3b;
+  --color-yellow-600: #fdd835;
+  --color-yellow-700: #fbc02d;
+  --color-yellow-800: #f9a825;
+  --color-yellow-900: #f57f17;
+}
+
+main {
+  max-width: 80rem;
+  margin: 0 auto;
+}
