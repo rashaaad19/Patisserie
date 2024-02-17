@@ -30,4 +30,3 @@ Throughout the development process, I explored various aspects of React Router, 
 * Adding error elements and handling different errors
 * Using different react router hooks like useNavigate
 
-Engaging in these tasks allowed me to apply React Router concepts in a practical setting and solidified my understanding of its core principles.
