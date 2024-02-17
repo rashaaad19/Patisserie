@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.textControl}>
-        <h1>Foodies for dessert recipes</h1>
+        <h1>Patisserie for dessert recipes</h1>
         <p>Best recipes across the internet.</p>
       </div>
       <div className={classes.imagesContainer}>
