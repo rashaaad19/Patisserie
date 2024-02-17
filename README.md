@@ -20,7 +20,7 @@ Patisserie is a web application designed to be your one-stop destination for dis
 - **Backend:** Firebase real time database.
 - **Frameworks and libraries:** React JS, React Router.
 
-### Learning Experience with React Router Dom
+### Learning Experience with React Router
 ---
 **This project was created as a learning exercise to gain experience with React Router. It should be noted that this is not a production-ready application but rather a sandbox environment for practicing and applying React Router features.**
 Throughout the development process, I explored various aspects of React Router, including
