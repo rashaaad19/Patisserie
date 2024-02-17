@@ -31,4 +31,5 @@ Throughout the development process, I explored various aspects of React Router, 
 * Adding error elements and handling different errors
 * Using different react router hooks like useNavigate
 
-This project provided an opportunity to apply and reinforce my understanding of React Router  concepts in a practical setting.
+All of it provided an opportunity to apply and reinforce my understanding of React Router  concepts in a practical setting.
+
